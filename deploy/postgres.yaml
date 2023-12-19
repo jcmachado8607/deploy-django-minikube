@@ -31,12 +31,12 @@ spec:
       labels:
         app: django
         tier: postgres
-  spec:
-    volumes:
-      - name: postgres-data
-        persistentVolumeClaim:
-          claimName: django-postgres-pvc
-    containers:
+    spec:
+      volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: django-postgres-pvc
+      containers:
         - image: postgres:15.2
           name: postgres
           ports:
@@ -55,4 +55,3 @@ spec:
                 secretKeyRef:
                   name: db-password
                   key: password
-
